@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="mr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>मल्हार चहा - परंपरेची चव</title>
+    <style>
+        /* Color Palette & Reset */
+        :root {
+            --primary-yellow: #FFC107;
+            --dark-yellow: #FFA000;
+            --light-yellow: #FFECB3;
+            --dark-brown: #3E2723;
+            --medium-brown: #4E342E;
+            --light-brown: #D7CCC8;
+            --cream: #FFFDE7;
+            --white: #FFFFFF;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: var(--cream);
+            color: var(--dark-brown);
+            line-height: 1.6;
+        }
+
+        /* Header & Navigation */
+        header {
+            background-color: var(--dark-brown);
+            padding: 1rem 5%;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            color: var(--primary-yellow);
+            font-size: 1.8rem;
+            font-weight: bold;
+            letter-spacing: 1px;
+        }
+
+        .logo span {
+            color: var(--white);
+        }
+
+        nav a {
+            color: var(--white);
+            text-decoration: none;
+            margin-left: 2rem;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: var(--primary-yellow);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(62, 39, 35, 0.85), rgba(78, 52, 46, 0.9)), url('https://images.unsplash.com/photo-1576092768241-dec231879fc3?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80') no-repeat center center/cover;
+            height: 60vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: var(--white);
+            padding: 0 1rem;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            color: var(--primary-yellow);
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 600px;
+            margin-bottom: 2rem;
+        }
+
+        .btn {
+            background-color: var(--primary-yellow);
+            color: var(--dark-brown);
+            padding: 0.8rem 2rem;
+            font-weight: bold;
+            text-decoration: none;
+            border-radius: 25px;
+            transition: all 0.3s ease;
+        }
+
+        .btn:hover {
+            background-color: var(--white);
+            color: var(--dark-brown);
+            transform: translateY(-2px);
+        }
+
+        /* Main Content Wrapper */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 4rem 2rem;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.3rem;
+            color: var(--dark-brown);
+            margin-bottom: 3rem;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 80px;
+            height: 4px;
+            background-color: var(--primary-yellow);
+            margin: 10px auto 0;
+            border-radius: 2px;
+        }
+
+        /* Menu Section */
+        .menu-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+
+        .menu-item {
+            background-color: var(--white);
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            transition: transform 0.3s;
+            border: 1px solid var(--light-yellow);
+        }
+
+        .menu-item:hover {
+            transform: translateY(-5px);
+        }
+
+        .menu-info {
+            padding: 1.5rem;
+            text-align: center;
+        }
+
+        .menu-info h3 {
+            color: var(--dark-brown);
+            margin-bottom: 0.5rem;
+            font-size: 1.4rem;
+        }
+
+        .menu-info p {
+            color: #666;
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+        }
+
+        .price {
+            color: var(--dark-yellow);
+            font-size: 1.3rem;
+            font-weight: bold;
+        }
+
+        /* About Section */
+        .about-section {
+            background-color: var(--light-yellow);
+            padding: 4rem 2rem;
+            text-align: center;
+            border-radius: 15px;
+        }
+
+        .about-section p {
+            max-width: 800px;
+            margin: 0 auto 1.5rem;
+            font-size: 1.1rem;
+        }
+
+        /* Contact & Address Section */
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .contact-card {
+            background-color: var(--white);
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            border-left: 5px solid var(--primary-yellow);
+        }
+
+        .contact-card h3 {
+            margin-bottom: 1rem;
+            color: var(--dark-brown);
+        }
+
+        .contact-card p {
+            margin-bottom: 0.5rem;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--dark-brown);
+            color: var(--white);
+            text-align: center;
+            padding: 2rem;
+            margin-top: 4rem;
+            border-top: 5px solid var(--primary-yellow);
+        }
+
+        footer p {
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            header {
+                flex-direction: column;
+                gap: 1rem;
+            }
+            nav a {
+                margin: 0 1rem;
+            }
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header Navigation -->
+    <header>
+        <div class="logo">मल्हार <span>चहा</span></div>
+        <nav>
+            <a href="#home">मुख्य पान</a>
+            <a href="#menu">मेन्यू</a>
+            <a href="#about">आमच्याबद्दल</a>
+            <a href="#contact">संपर्क</a>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <h1>मल्हार चहा</h1>
+        <p>अस्सल गुळाचा चहा आणि सुगंधी मसाल्यांची अप्रतिम मेजवानी. एकदा प्याल तर चव विसरणार नाही!</p>
+        <a href="#menu" class="btn">मेन्यू पहा</a>
+    </section>
+
+    <!-- Menu Section -->
+    <main class="container" id="menu">
+        <h2 class="section-title">आमचा स्पेशल मेन्यू</h2>
+        <div class="menu-grid">
+            
+            <!-- Item 1 -->
+            <div class="menu-item">
+                <div class="menu-info">
+                    <h3>मल्हार स्पेशल चहा</h3>
+                    <p>खास निवडक चहापत्ती आणि गुप्त मसाल्यांचे मिश्रण.</p>
+                    <span class="price">₹१५</span>
+                </div>
+            </div>
+
+            <!-- Item 2 -->
+            <div class="menu-item">
+                <div class="menu-info">
+                    <h3>गुळाचा चहा</h3>
+                    <p>आरोग्यदायी आणि पारंपारिक पद्धतीने बनवलेला शुद्ध गुळाचा चहा.</p>
+                    <span class="price">₹१०</span>
+                </div>
+            </div>
+
+            <!-- Item 3 -->
+            <div class="menu-item">
+                <div class="menu-info">
+                    <h3> मलाई चहा  </h3>
+                    <p>चहाप्रेमींसाठी कडक, घट्ट आणि मनसोक्त उकळलेला चहा.</p>
+                    <span class="price">₹१५</span>
+                </div>
+            </div>
+
+            <!-- Item 4 -->
+            <div class="menu-item">
+                <div class="menu-info">
+                    <h3>बन मस्का</h3>
+                    <p>मऊ आणि ताज्या बनवर भरपूर बटर लावून दिलेला खास पदार्थ.</p>
+                    <span class="price">₹२५</span>
+                </div>
+            </div>
+
+            <!-- Item 5 -->
+            <div class="menu-item">
+                <div class="menu-info">
+                    <h3>क्रिम रोल</h3>
+                    <p>खुसखुशीत रोल आणि आतमध्ये गोड, स्वादिष्ट क्रिम.</p>
+                    <span class="price">₹१०</span>
+                </div>
+            </div>
+
+            <!-- Item 6 -->
+            <div class="menu-item">
+                <div class="menu-info">
+                    <h3>कॉफी</h3>
+                    <p>गरमागरम चहासोबत खाण्यासाठी कुरकुरीत आणि चवदार खारी.</p>
+                    <span class="price">₹१५</span>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <!-- About Section -->
+    <section class="container" id="about">
+        <div class="about-section">
+            <h2 class="section-title">मल्हार चहाबद्दल</h2>
+            <p>आमच्यासाठी चहा हे फक्त पेय नाही, तर ती एक भावना आहे. परंपरेची जपणूक करत, आम्ही तुमच्यासाठी सर्वोत्तम दर्जाची चहापत्ती आणि निवडक मसाल्यांचा वापर करून अस्सल चव घेऊन आलो आहोत.</p>
+            <p>सकाळची ताजी सुरुवात असो किंवा संध्याकाळचा थकवा घालवायचा असो, मल्हार चहाचा प्रत्येक घोट तुम्हाला नक्कीच ताजेतवाने करेल.</p>
+        </div>
+    </section>
+
+    <!-- Contact & Address Section -->
+    <section class="container" id="contact">
+        <h2 class="section-title">आमच्याशी संपर्क साधा</h2>
+        <div class="contact-grid">
+            
+            <!-- Address Card -->
+            <div class="contact-card">
+                <h3>मुख्य शाखा (पत्ता)</h3>
+                <p><strong>मल्हार चहा मुख्य शाखा ,</strong></p>
+                <p>दिव्या झेरॉक्स च्या बाजूला,</p>
+                <p>पिंपळगाव (हरेश्वर) 424203,</p>
+                <p>पाचोरा,जळगाव,महाराष्ट्र.</p>
+            </div>
+
+            <!-- Contact Card -->
+            <div class="contact-card">
+                <h3>संपर्क तपशील</h3>
+                <p><strong>मालक:</strong> सार्थक ज्ञानेश्वर काळे 
+                <p><strong>फोन नंबर:</strong> +91 8657482265/8888191971</p>
+                <p><strong>ईमेल:</strong> sarthakkale567gmail.com</p>
+                <p><strong>वेळ:</strong> सकाळी ६:०० ते रात्री १०:०० (सर्व दिवस चालू)</p>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p style="color: var(--primary-yellow); font-weight: bold; margin-bottom: 0.5rem;">मल्हार चहा फ्रँचायझी</p>
+        <p>तुमच्या जवळच्या शाखेला आजच भेट द्या!</p>
+        <p style="margin-top: 1rem;">&copy; २०२६ मल्हार चहा. सर्व हक्क सुरक्षित.</p>
+    </footer>
+
+</body>
+</html>
