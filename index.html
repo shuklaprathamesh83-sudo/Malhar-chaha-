@@ -15,6 +15,7 @@
             --light-brown: #D7CCC8;
             --cream: #FFFDE7;
             --white: #FFFFFF;
+            --shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
         }
 
         * {
@@ -22,6 +23,10 @@
             padding: 0;
             box-sizing: border-box;
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        html {
+            scroll-behavior: smooth;
         }
 
         body {
@@ -37,7 +42,7 @@
             position: sticky;
             top: 0;
             z-index: 1000;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            box-shadow: 0 4px 10px rgba(0,0,0,0.15);
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -46,7 +51,7 @@
         .logo {
             color: var(--primary-yellow);
             font-size: 1.8rem;
-            font-weight: bold;
+            font-weight: 700;
             letter-spacing: 1px;
         }
 
@@ -57,9 +62,9 @@
         nav a {
             color: var(--white);
             text-decoration: none;
-            margin-left: 2rem;
+            margin-left: 1.8rem;
             font-weight: 500;
-            transition: color 0.3s;
+            transition: color 0.3s ease;
         }
 
         nav a:hover {
@@ -68,51 +73,57 @@
 
         /* Hero Section */
         .hero {
-            background: linear-gradient(rgba(62, 39, 35, 0.85), rgba(78, 52, 46, 0.9)), url('https://images.unsplash.com/photo-1576092768241-dec231879fc3?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80') no-repeat center center/cover;
-            height: 60vh;
+            background-color: var(--dark-brown);
+            min-height: 50vh;
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
             text-align: center;
             color: var(--white);
-            padding: 0 1rem;
+            padding: 3rem 1rem;
+            border-bottom: 5px solid var(--primary-yellow);
         }
 
         .hero h1 {
-            font-size: 3rem;
+            font-size: 3.2rem;
             color: var(--primary-yellow);
             margin-bottom: 1rem;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
         }
 
         .hero p {
-            font-size: 1.2rem;
-            max-width: 600px;
+            font-size: 1.25rem;
+            max-width: 650px;
             margin-bottom: 2rem;
+            opacity: 0.95;
         }
 
         .btn {
             background-color: var(--primary-yellow);
             color: var(--dark-brown);
-            padding: 0.8rem 2rem;
+            padding: 0.8rem 2.2rem;
             font-weight: bold;
             text-decoration: none;
-            border-radius: 25px;
+            border-radius: 30px;
+            border: none;
+            cursor: pointer;
             transition: all 0.3s ease;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+            display: inline-block;
         }
 
         .btn:hover {
             background-color: var(--white);
             color: var(--dark-brown);
-            transform: translateY(-2px);
+            transform: translateY(-3px);
+            box-shadow: 0 6px 12px rgba(0,0,0,0.25);
         }
 
-        /* Main Content Wrapper */
+        /* Container Layout */
         .container {
             max-width: 1200px;
             margin: 0 auto;
-            padding: 4rem 2rem;
+            padding: 4rem 1.5rem;
         }
 
         .section-title {
@@ -133,7 +144,7 @@
             border-radius: 2px;
         }
 
-        /* Menu Section */
+        /* Menu Section - Text-based Cards */
         .menu-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -142,37 +153,38 @@
 
         .menu-item {
             background-color: var(--white);
-            border-radius: 10px;
-            overflow: hidden;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
-            transition: transform 0.3s;
+            border-radius: 12px;
+            padding: 1.8rem;
+            box-shadow: var(--shadow);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
             border: 1px solid var(--light-yellow);
+            border-top: 5px solid var(--dark-yellow);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            text-align: center;
         }
 
         .menu-item:hover {
-            transform: translateY(-5px);
-        }
-
-        .menu-info {
-            padding: 1.5rem;
-            text-align: center;
+            transform: translateY(-6px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.12);
         }
 
         .menu-info h3 {
             color: var(--dark-brown);
-            margin-bottom: 0.5rem;
+            margin-bottom: 0.6rem;
             font-size: 1.4rem;
         }
 
         .menu-info p {
             color: #666;
-            font-size: 0.9rem;
-            margin-bottom: 1rem;
+            font-size: 0.95rem;
+            margin-bottom: 1.2rem;
         }
 
         .price {
             color: var(--dark-yellow);
-            font-size: 1.3rem;
+            font-size: 1.4rem;
             font-weight: bold;
         }
 
@@ -182,37 +194,110 @@
             padding: 4rem 2rem;
             text-align: center;
             border-radius: 15px;
+            box-shadow: var(--shadow);
         }
 
         .about-section p {
             max-width: 800px;
             margin: 0 auto 1.5rem;
             font-size: 1.1rem;
+            color: var(--medium-brown);
         }
 
-        /* Contact & Address Section */
+        /* Inquiry Section Styles */
+        .inquiry-card {
+            background-color: var(--white);
+            padding: 2.5rem;
+            border-radius: 15px;
+            box-shadow: var(--shadow);
+            max-width: 800px;
+            margin: 0 auto;
+            border-top: 6px solid var(--primary-yellow);
+        }
+
+        .inquiry-card p {
+            text-align: center;
+            margin-bottom: 2rem;
+            color: var(--medium-brown);
+        }
+
+        .form-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .form-group.full-width {
+            grid-column: span 2;
+        }
+
+        .form-group label {
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: var(--dark-brown);
+        }
+
+        .form-group input, 
+        .form-group select, 
+        .form-group textarea {
+            padding: 0.8rem 1rem;
+            border: 1px solid var(--light-brown);
+            border-radius: 8px;
+            font-size: 1rem;
+            background-color: var(--cream);
+            outline: none;
+            transition: border-color 0.3s;
+        }
+
+        .form-group input:focus, 
+        .form-group select:focus, 
+        .form-group textarea:focus {
+            border-color: var(--dark-yellow);
+            background-color: var(--white);
+        }
+
+        .form-submit {
+            text-align: center;
+            margin-top: 1.5rem;
+        }
+
+        /* Contact Section */
         .contact-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 2rem;
-            margin-top: 2rem;
         }
 
         .contact-card {
             background-color: var(--white);
             padding: 2rem;
-            border-radius: 10px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            border-radius: 12px;
+            box-shadow: var(--shadow);
             border-left: 5px solid var(--primary-yellow);
         }
 
         .contact-card h3 {
-            margin-bottom: 1rem;
+            margin-bottom: 1.2rem;
             color: var(--dark-brown);
+            font-size: 1.3rem;
         }
 
         .contact-card p {
-            margin-bottom: 0.5rem;
+            margin-bottom: 0.6rem;
+        }
+
+        .contact-card a {
+            color: var(--medium-brown);
+            text-decoration: none;
+        }
+
+        .contact-card a:hover {
+            text-decoration: underline;
         }
 
         /* Footer */
@@ -220,14 +305,14 @@
             background-color: var(--dark-brown);
             color: var(--white);
             text-align: center;
-            padding: 2rem;
+            padding: 2.5rem 1rem;
             margin-top: 4rem;
             border-top: 5px solid var(--primary-yellow);
         }
 
         footer p {
-            font-size: 0.9rem;
-            opacity: 0.8;
+            font-size: 0.95rem;
+            opacity: 0.9;
         }
 
         /* Responsive Design */
@@ -235,12 +320,28 @@
             header {
                 flex-direction: column;
                 gap: 1rem;
+                padding: 1rem;
             }
+
             nav a {
-                margin: 0 1rem;
+                margin: 0 0.5rem;
+                font-size: 0.95rem;
             }
+
             .hero h1 {
-                font-size: 2.2rem;
+                font-size: 2.4rem;
+            }
+
+            .form-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .form-group.full-width {
+                grid-column: span 1;
+            }
+
+            .container {
+                padding: 2.5rem 1rem;
             }
         }
     </style>
@@ -254,6 +355,7 @@
             <a href="#home">मुख्य पान</a>
             <a href="#menu">मेन्यू</a>
             <a href="#about">आमच्याबद्दल</a>
+            <a href="#inquiry">चौकशी</a>
             <a href="#contact">संपर्क</a>
         </nav>
     </header>
@@ -275,8 +377,8 @@
                 <div class="menu-info">
                     <h3>मल्हार स्पेशल चहा</h3>
                     <p>खास निवडक चहापत्ती आणि गुप्त मसाल्यांचे मिश्रण.</p>
-                    <span class="price">₹१५</span>
                 </div>
+                <span class="price">₹१५</span>
             </div>
 
             <!-- Item 2 -->
@@ -284,17 +386,17 @@
                 <div class="menu-info">
                     <h3>गुळाचा चहा</h3>
                     <p>आरोग्यदायी आणि पारंपारिक पद्धतीने बनवलेला शुद्ध गुळाचा चहा.</p>
-                    <span class="price">₹१०</span>
                 </div>
+                <span class="price">₹१०</span>
             </div>
 
             <!-- Item 3 -->
             <div class="menu-item">
                 <div class="menu-info">
-                    <h3> मलाई चहा  </h3>
+                    <h3>मलाई चहा</h3>
                     <p>चहाप्रेमींसाठी कडक, घट्ट आणि मनसोक्त उकळलेला चहा.</p>
-                    <span class="price">₹१५</span>
                 </div>
+                <span class="price">₹१५</span>
             </div>
 
             <!-- Item 4 -->
@@ -302,8 +404,8 @@
                 <div class="menu-info">
                     <h3>बन मस्का</h3>
                     <p>मऊ आणि ताज्या बनवर भरपूर बटर लावून दिलेला खास पदार्थ.</p>
-                    <span class="price">₹२५</span>
                 </div>
+                <span class="price">₹२५</span>
             </div>
 
             <!-- Item 5 -->
@@ -311,8 +413,8 @@
                 <div class="menu-info">
                     <h3>क्रिम रोल</h3>
                     <p>खुसखुशीत रोल आणि आतमध्ये गोड, स्वादिष्ट क्रिम.</p>
-                    <span class="price">₹१०</span>
                 </div>
+                <span class="price">₹१०</span>
             </div>
 
             <!-- Item 6 -->
@@ -320,8 +422,8 @@
                 <div class="menu-info">
                     <h3>कॉफी</h3>
                     <p>कॉफीची जादू अशी, जी थकवा पळवून लावे खिशी.</p>
-                    <span class="price">₹१५</span>
                 </div>
+                <span class="price">₹१५</span>
             </div>
 
         </div>
@@ -336,6 +438,52 @@
         </div>
     </section>
 
+    <!-- Inquiry Section -->
+    <section class="container" id="inquiry">
+        <h2 class="section-title">चौकशी आणि फ्रँचायझी</h2>
+        <div class="inquiry-card">
+            <p>तुम्हाला मल्हार चहाची फ्रँचायझी हवी आहे किंवा काही चौकशी करायची आहे? खालील फॉर्म भरा:</p>
+            
+            <form id="inquiryForm">
+                <div class="form-grid">
+                    <div class="form-group">
+                        <label for="name">पूर्ण नाव (Full Name) *</label>
+                        <input type="text" id="name" required placeholder="तुमचे नाव टाका">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="phone">मोबाइल नंबर (Mobile No) *</label>
+                        <input type="tel" id="phone" required placeholder="१० अंकी नंबर टाका">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="inquiryType">चौकशीचा प्रकार (Inquiry Type)</label>
+                        <select id="inquiryType">
+                            <option value="franchise">फ्रँचायझी माहिती (Franchise Enquiry)</option>
+                            <option value="bulk_order">मोठी ऑर्डर / कॅटरिंग (Bulk Order)</option>
+                            <option value="feedback">प्रतिक्रिया / सूचना (Feedback)</option>
+                            <option value="other">इतर (Other)</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="city">शहर / गाव (City/Location)</label>
+                        <input type="text" id="city" placeholder="तुमच्या शहराचे नाव">
+                    </div>
+
+                    <div class="form-group full-width">
+                        <label for="message">संदेश (Message)</label>
+                        <textarea id="message" rows="4" placeholder="तुमचा संदेश येथे लिहा..."></textarea>
+                    </div>
+                </div>
+
+                <div class="form-submit">
+                    <button type="submit" class="btn">संदेश पाठवा</button>
+                </div>
+            </form>
+        </div>
+    </section>
+
     <!-- Contact & Address Section -->
     <section class="container" id="contact">
         <h2 class="section-title">आमच्याशी संपर्क साधा</h2>
@@ -344,18 +492,18 @@
             <!-- Address Card -->
             <div class="contact-card">
                 <h3>मुख्य शाखा (पत्ता)</h3>
-                <p><strong>मल्हार चहा मुख्य शाखा ,</strong></p>
+                <p><strong>मल्हार चहा मुख्य शाखा,</strong></p>
                 <p>दिव्या झेरॉक्स च्या बाजूला,</p>
-                <p>पिंपळगाव (हरेश्वर) 424203,</p>
-                <p>पाचोरा,जळगाव,महाराष्ट्र.</p>
+                <p>पिंपळगाव (हरेश्वर) ४२४२०३,</p>
+                <p>पाचोरा, जळगाव, महाराष्ट्र.</p>
             </div>
 
             <!-- Contact Card -->
             <div class="contact-card">
                 <h3>संपर्क तपशील</h3>
-                <p><strong>मालक:</strong> सार्थक ज्ञानेश्वर काळे 
-                <p><strong>फोन नंबर:</strong> +91 8657482265/8888191971</p>
-                <p><strong>ईमेल:</strong> sarthakkale567gmail.com</p>
+                <p><strong>मालक:</strong> सार्थक ज्ञानेश्वर काळे</p>
+                <p><strong>फोन नंबर:</strong> <a href="tel:+918657482265">+91 8657482265</a> / <a href="tel:+918888191971">8888191971</a></p>
+                <p><strong>ईमेल:</strong> <a href="mailto:sarthakkale567@gmail.com">sarthakkale567@gmail.com</a></p>
                 <p><strong>वेळ:</strong> सकाळी ६:०० ते रात्री १०:०० (सर्व दिवस चालू)</p>
             </div>
 
@@ -365,9 +513,26 @@
     <!-- Footer -->
     <footer>
         <p style="color: var(--primary-yellow); font-weight: bold; margin-bottom: 0.5rem;">मल्हार चहा फ्रँचायझी</p>
-        <p>मुख्य शाखेला आजच भेट द्याा!</p>
+        <p>मुख्य शाखेला आजच भेट द्या!</p>
         <p style="margin-top: 1rem;">&copy; २०२६ मल्हार चहा. सर्व हक्क सुरक्षित.</p>
     </footer>
+
+    <!-- Form Handler Script -->
+    <script>
+        document.getElementById('inquiryForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const name = document.getElementById('name').value;
+            const phone = document.getElementById('phone').value;
+            const inquiryType = document.getElementById('inquiryType').value;
+            const city = document.getElementById('city').value;
+            const message = document.getElementById('message').value;
+
+            const whatsappMsg = `नमस्कार, मी मल्हार चहा वेबसाइटवरून चौकशी करत आहे:%0A%0A*नाव:* ${name}%0A*फोन:* ${phone}%0A*प्रकार:* ${inquiryType}%0A*शहर:* ${city}%0A*संदेश:* ${message}`;
+            
+            window.open(`https://wa.me/918657482265?text=${whatsappMsg}`, '_blank');
+        });
+    </script>
 
 </body>
 </html>
