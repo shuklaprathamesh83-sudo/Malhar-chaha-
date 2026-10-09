@@ -1,538 +1,521 @@
+
 <!DOCTYPE html>
 <html lang="mr">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>मल्हार चहा - परंपरेची चव</title>
-    <style>
-        /* Color Palette & Reset */
-        :root {
-            --primary-yellow: #FFC107;
-            --dark-yellow: #FFA000;
-            --light-yellow: #FFECB3;
-            --dark-brown: #3E2723;
-            --medium-brown: #4E342E;
-            --light-brown: #D7CCC8;
-            --cream: #FFFDE7;
-            --white: #FFFFFF;
-            --shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
-        }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        }
+  <title>मल्हार चहा | परंपरेची चव</title>
 
-        html {
-            scroll-behavior: smooth;
-        }
+  <style>
+    :root {
+      --yellow: #ffc107;
+      --dark-yellow: #ffa000;
+      --brown: #3e2723;
+      --cream: #fffde7;
+      --white: #ffffff;
+    }
 
-        body {
-            background-color: var(--cream);
-            color: var(--dark-brown);
-            line-height: 1.6;
-        }
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: Arial, "Noto Sans Devanagari", sans-serif;
+    }
 
-        /* Header & Navigation */
-        header {
-            background-color: var(--dark-brown);
-            padding: 1rem 5%;
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.15);
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
+    html { scroll-behavior: smooth; }
 
-        .logo {
-            color: var(--primary-yellow);
-            font-size: 1.8rem;
-            font-weight: 700;
-            letter-spacing: 1px;
-        }
+    body {
+      background: var(--cream);
+      color: var(--brown);
+      line-height: 1.7;
+    }
 
-        .logo span {
-            color: var(--white);
-        }
+    header {
+      background: var(--brown);
+      color: white;
+      padding: 16px 6%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 12px;
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
 
-        nav a {
-            color: var(--white);
-            text-decoration: none;
-            margin-left: 1.8rem;
-            font-weight: 500;
-            transition: color 0.3s ease;
-        }
+    .logo {
+      color: var(--yellow);
+      font-size: 26px;
+      font-weight: bold;
+    }
 
-        nav a:hover {
-            color: var(--primary-yellow);
-        }
+    nav {
+      display: flex;
+      gap: 18px;
+      flex-wrap: wrap;
+    }
 
-        /* Hero Section */
-        .hero {
-            background-color: var(--dark-brown);
-            min-height: 50vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            color: var(--white);
-            padding: 3rem 1rem;
-            border-bottom: 5px solid var(--primary-yellow);
-        }
+    nav a {
+      color: white;
+      text-decoration: none;
+    }
 
-        .hero h1 {
-            font-size: 3.2rem;
-            color: var(--primary-yellow);
-            margin-bottom: 1rem;
-        }
+    nav a:hover { color: var(--yellow); }
 
-        .hero p {
-            font-size: 1.25rem;
-            max-width: 650px;
-            margin-bottom: 2rem;
-            opacity: 0.95;
-        }
+    .hero {
+      background: linear-gradient(135deg, #3e2723, #6d4c41);
+      color: white;
+      text-align: center;
+      padding: 90px 20px;
+      border-bottom: 5px solid var(--yellow);
+    }
 
-        .btn {
-            background-color: var(--primary-yellow);
-            color: var(--dark-brown);
-            padding: 0.8rem 2.2rem;
-            font-weight: bold;
-            text-decoration: none;
-            border-radius: 30px;
-            border: none;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
-            display: inline-block;
-        }
+    .hero h1 {
+      font-size: clamp(36px, 6vw, 60px);
+      color: var(--yellow);
+      margin-bottom: 12px;
+    }
 
-        .btn:hover {
-            background-color: var(--white);
-            color: var(--dark-brown);
-            transform: translateY(-3px);
-            box-shadow: 0 6px 12px rgba(0,0,0,0.25);
-        }
+    .hero p {
+      max-width: 650px;
+      margin: 0 auto 25px;
+      font-size: 18px;
+    }
 
-        /* Container Layout */
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 4rem 1.5rem;
-        }
+    .btn {
+      display: inline-block;
+      background: var(--yellow);
+      color: var(--brown);
+      padding: 12px 25px;
+      border: none;
+      border-radius: 30px;
+      font-size: 16px;
+      font-weight: bold;
+      text-decoration: none;
+      cursor: pointer;
+    }
 
-        .section-title {
-            text-align: center;
-            font-size: 2.3rem;
-            color: var(--dark-brown);
-            margin-bottom: 3rem;
-            position: relative;
-        }
+    .btn:hover { background: #ffe082; }
 
-        .section-title::after {
-            content: '';
-            display: block;
-            width: 80px;
-            height: 4px;
-            background-color: var(--primary-yellow);
-            margin: 10px auto 0;
-            border-radius: 2px;
-        }
+    .container {
+      max-width: 1150px;
+      margin: auto;
+      padding: 55px 20px;
+    }
 
-        /* Menu Section - Text-based Cards */
-        .menu-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 2rem;
-        }
+    .section-title {
+      text-align: center;
+      font-size: 30px;
+      margin-bottom: 30px;
+    }
 
-        .menu-item {
-            background-color: var(--white);
-            border-radius: 12px;
-            padding: 1.8rem;
-            box-shadow: var(--shadow);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            border: 1px solid var(--light-yellow);
-            border-top: 5px solid var(--dark-yellow);
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-            text-align: center;
-        }
+    .section-title::after {
+      content: "";
+      display: block;
+      width: 75px;
+      height: 4px;
+      background: var(--yellow);
+      margin: 8px auto;
+    }
 
-        .menu-item:hover {
-            transform: translateY(-6px);
-            box-shadow: 0 8px 20px rgba(0,0,0,0.12);
-        }
+    .menu-grid, .contact-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+      gap: 22px;
+    }
 
-        .menu-info h3 {
-            color: var(--dark-brown);
-            margin-bottom: 0.6rem;
-            font-size: 1.4rem;
-        }
+    .menu-item, .contact-card, .inquiry-card {
+      background: white;
+      padding: 25px;
+      border-radius: 14px;
+      box-shadow: 0 4px 15px #00000012;
+    }
 
-        .menu-info p {
-            color: #666;
-            font-size: 0.95rem;
-            margin-bottom: 1.2rem;
-        }
+    .menu-item {
+      text-align: center;
+      border-top: 5px solid var(--dark-yellow);
+    }
 
-        .price {
-            color: var(--dark-yellow);
-            font-size: 1.4rem;
-            font-weight: bold;
-        }
+    .menu-item h3 { margin-bottom: 8px; }
 
-        /* About Section */
-        .about-section {
-            background-color: var(--light-yellow);
-            padding: 4rem 2rem;
-            text-align: center;
-            border-radius: 15px;
-            box-shadow: var(--shadow);
-        }
+    .menu-item p {
+      color: #666;
+      margin-bottom: 12px;
+    }
 
-        .about-section p {
-            max-width: 800px;
-            margin: 0 auto 1.5rem;
-            font-size: 1.1rem;
-            color: var(--medium-brown);
-        }
+    .price {
+      color: #a05b00;
+      font-size: 22px;
+      font-weight: bold;
+    }
 
-        /* Inquiry Section Styles */
-        .inquiry-card {
-            background-color: var(--white);
-            padding: 2.5rem;
-            border-radius: 15px;
-            box-shadow: var(--shadow);
-            max-width: 800px;
-            margin: 0 auto;
-            border-top: 6px solid var(--primary-yellow);
-        }
+    .about {
+      background: #ffecb3;
+      padding: 35px;
+      border-radius: 15px;
+      text-align: center;
+    }
 
-        .inquiry-card p {
-            text-align: center;
-            margin-bottom: 2rem;
-            color: var(--medium-brown);
-        }
+    .about p {
+      max-width: 800px;
+      margin: 12px auto;
+    }
 
-        .form-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 1.5rem;
-        }
+    .inquiry-card {
+      max-width: 800px;
+      margin: auto;
+      border-top: 5px solid var(--yellow);
+    }
 
-        .form-group {
-            display: flex;
-            flex-direction: column;
-        }
+    .form-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 18px;
+      margin-top: 22px;
+    }
 
-        .form-group.full-width {
-            grid-column: span 2;
-        }
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
 
-        .form-group label {
-            font-weight: 600;
-            margin-bottom: 0.5rem;
-            color: var(--dark-brown);
-        }
+    .full-width { grid-column: 1 / -1; }
 
-        .form-group input, 
-        .form-group select, 
-        .form-group textarea {
-            padding: 0.8rem 1rem;
-            border: 1px solid var(--light-brown);
-            border-radius: 8px;
-            font-size: 1rem;
-            background-color: var(--cream);
-            outline: none;
-            transition: border-color 0.3s;
-        }
+    input, select, textarea {
+      width: 100%;
+      padding: 12px;
+      border: 1px solid #d7ccc8;
+      border-radius: 8px;
+      font-size: 16px;
+      background: #fffef8;
+    }
 
-        .form-group input:focus, 
-        .form-group select:focus, 
-        .form-group textarea:focus {
-            border-color: var(--dark-yellow);
-            background-color: var(--white);
-        }
+    input:focus, select:focus, textarea:focus {
+      outline: 2px solid var(--yellow);
+      border-color: var(--dark-yellow);
+    }
 
-        .form-submit {
-            text-align: center;
-            margin-top: 1.5rem;
-        }
+    .form-submit {
+      text-align: center;
+      margin-top: 22px;
+    }
 
-        /* Contact Section */
-        .contact-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-        }
+    .status {
+      margin-top: 15px;
+      text-align: center;
+      overflow-wrap: anywhere;
+    }
 
-        .contact-card {
-            background-color: var(--white);
-            padding: 2rem;
-            border-radius: 12px;
-            box-shadow: var(--shadow);
-            border-left: 5px solid var(--primary-yellow);
-        }
+    .contact-card h3 { margin-bottom: 12px; }
 
-        .contact-card h3 {
-            margin-bottom: 1.2rem;
-            color: var(--dark-brown);
-            font-size: 1.3rem;
-        }
+    .contact-card a {
+      color: #795548;
+      overflow-wrap: anywhere;
+    }
 
-        .contact-card p {
-            margin-bottom: 0.6rem;
-        }
+    footer {
+      background: var(--brown);
+      color: white;
+      text-align: center;
+      padding: 30px 15px;
+      border-top: 5px solid var(--yellow);
+    }
 
-        .contact-card a {
-            color: var(--medium-brown);
-            text-decoration: none;
-        }
+    footer .developer {
+      color: var(--yellow);
+      font-weight: bold;
+      margin-top: 12px;
+    }
 
-        .contact-card a:hover {
-            text-decoration: underline;
-        }
+    @media (max-width: 650px) {
+      header {
+        justify-content: center;
+        text-align: center;
+      }
 
-        /* Footer */
-        footer {
-            background-color: var(--dark-brown);
-            color: var(--white);
-            text-align: center;
-            padding: 2.5rem 1rem;
-            margin-top: 4rem;
-            border-top: 5px solid var(--primary-yellow);
-        }
+      nav { justify-content: center; gap: 12px; }
 
-        footer p {
-            font-size: 0.95rem;
-            opacity: 0.9;
-        }
+      .form-grid { grid-template-columns: 1fr; }
 
-        /* Responsive Design */
-        @media (max-width: 768px) {
-            header {
-                flex-direction: column;
-                gap: 1rem;
-                padding: 1rem;
-            }
+      .full-width { grid-column: auto; }
 
-            nav a {
-                margin: 0 0.5rem;
-                font-size: 0.95rem;
-            }
-
-            .hero h1 {
-                font-size: 2.4rem;
-            }
-
-            .form-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .form-group.full-width {
-                grid-column: span 1;
-            }
-
-            .container {
-                padding: 2.5rem 1rem;
-            }
-        }
-    </style>
+      .container { padding: 38px 15px; }
+    }
+  </style>
 </head>
+
 <body>
 
-    <!-- Header Navigation -->
-    <header>
-        <div class="logo">मल्हार <span>चहा</span></div>
-        <nav>
-            <a href="#home">मुख्य पान</a>
-            <a href="#menu">मेन्यू</a>
-            <a href="#about">आमच्याबद्दल</a>
-            <a href="#inquiry">चौकशी</a>
-            <a href="#contact">संपर्क</a>
-        </nav>
-    </header>
+<header>
+  <div class="logo">मल्हार चहा ☕</div>
+  <nav>
+    <a href="#home">मुख्य पान</a>
+    <a href="#menu">मेन्यू</a>
+    <a href="#about">आमच्याबद्दल</a>
+    <a href="#inquiry">चौकशी</a>
+    <a href="#contact">संपर्क</a>
+  </nav>
+</header>
 
-    <!-- Hero Section -->
-    <section class="hero" id="home">
-        <h1>मल्हार चहा</h1>
-        <p>अस्सल गुळाचा चहा आणि सुगंधी मसाल्यांची अप्रतिम मेजवानी. एकदा प्याल तर चव विसरणार नाही!</p>
-        <a href="#menu" class="btn">मेन्यू पहा</a>
-    </section>
+<section class="hero" id="home">
+  <h1>मल्हार चहा</h1>
+  <p>
+    अस्सल गुळाचा चहा आणि सुगंधी मसाल्यांची अप्रतिम मेजवानी.
+    एकदा प्याल तर चव विसरणार नाही!
+  </p>
+  <a href="#menu" class="btn">मेन्यू पहा</a>
+</section>
 
-    <!-- Menu Section -->
-    <main class="container" id="menu">
-        <h2 class="section-title">आमचा स्पेशल मेन्यू</h2>
-        <div class="menu-grid">
-            
-            <!-- Item 1 -->
-            <div class="menu-item">
-                <div class="menu-info">
-                    <h3>मल्हार स्पेशल चहा</h3>
-                    <p>खास निवडक चहापत्ती आणि गुप्त मसाल्यांचे मिश्रण.</p>
-                </div>
-                <span class="price">₹१५</span>
-            </div>
+<main class="container" id="menu">
+  <h2 class="section-title">आमचा स्पेशल मेन्यू</h2>
 
-            <!-- Item 2 -->
-            <div class="menu-item">
-                <div class="menu-info">
-                    <h3>गुळाचा चहा</h3>
-                    <p>आरोग्यदायी आणि पारंपारिक पद्धतीने बनवलेला शुद्ध गुळाचा चहा.</p>
-                </div>
-                <span class="price">₹१०</span>
-            </div>
+  <div class="menu-grid">
+    <div class="menu-item">
+      <h3>मल्हार स्पेशल चहा</h3>
+      <p>निवडक चहापत्ती आणि खास मसाल्यांचे मिश्रण.</p>
+      <span class="price">₹१५</span>
+    </div>
 
-            <!-- Item 3 -->
-            <div class="menu-item">
-                <div class="menu-info">
-                    <h3>मलाई चहा</h3>
-                    <p>चहाप्रेमींसाठी कडक, घट्ट आणि मनसोक्त उकळलेला चहा.</p>
-                </div>
-                <span class="price">₹१५</span>
-            </div>
+    <div class="menu-item">
+      <h3>गुळाचा चहा</h3>
+      <p>पारंपरिक पद्धतीने बनवलेला गुळाचा चहा.</p>
+      <span class="price">₹१०</span>
+    </div>
 
-            <!-- Item 4 -->
-            <div class="menu-item">
-                <div class="menu-info">
-                    <h3>बन मस्का</h3>
-                    <p>मऊ आणि ताज्या बनवर भरपूर बटर लावून दिलेला खास पदार्थ.</p>
-                </div>
-                <span class="price">₹२५</span>
-            </div>
+    <div class="menu-item">
+      <h3>मलाई चहा</h3>
+      <p>घट्ट आणि मनसोक्त उकळलेला चहा.</p>
+      <span class="price">₹१५</span>
+    </div>
 
-            <!-- Item 5 -->
-            <div class="menu-item">
-                <div class="menu-info">
-                    <h3>क्रिम रोल</h3>
-                    <p>खुसखुशीत रोल आणि आतमध्ये गोड, स्वादिष्ट क्रिम.</p>
-                </div>
-                <span class="price">₹१०</span>
-            </div>
+    <div class="menu-item">
+      <h3>बन मस्का</h3>
+      <p>मऊ बन आणि बटरची स्वादिष्ट जोडी.</p>
+      <span class="price">₹२५</span>
+    </div>
 
-            <!-- Item 6 -->
-            <div class="menu-item">
-                <div class="menu-info">
-                    <h3>कॉफी</h3>
-                    <p>कॉफीची जादू अशी, जी थकवा पळवून लावे खिशी.</p>
-                </div>
-                <span class="price">₹१५</span>
-            </div>
+    <div class="menu-item">
+      <h3>क्रिम रोल</h3>
+      <p>खुसखुशीत रोल आणि गोड क्रीम.</p>
+      <span class="price">₹१०</span>
+    </div>
 
+    <div class="menu-item">
+      <h3>कॉफी</h3>
+      <p>प्रत्येक घोटात ताजेतवाने करणारी कॉफी.</p>
+      <span class="price">₹१५</span>
+    </div>
+  </div>
+</main>
+
+<section class="container" id="about">
+  <div class="about">
+    <h2 class="section-title">मल्हार चहाबद्दल</h2>
+    <p>
+      आमच्यासाठी चहा हे फक्त पेय नाही, तर एक भावना आहे.
+      उत्तम चहापत्ती आणि निवडक मसाल्यांच्या मदतीने
+      आम्ही तुमच्यासाठी खास चव घेऊन आलो आहोत.
+    </p>
+    <p>
+      सकाळची सुरुवात असो किंवा संध्याकाळचा थकवा,
+      मल्हार चहाचा प्रत्येक घोट तुमचा दिवस खास करेल.
+    </p>
+  </div>
+</section>
+
+<section class="container" id="inquiry">
+  <h2 class="section-title">चौकशी आणि फ्रँचायझी</h2>
+
+  <div class="inquiry-card">
+    <p>
+      फ्रँचायझी, मोठी ऑर्डर किंवा इतर चौकशीसाठी
+      खालील फॉर्म भरा.
+    </p>
+
+    <form id="inquiryForm">
+      <div class="form-grid">
+
+        <div class="form-group">
+          <label for="name">पूर्ण नाव *</label>
+          <input id="name" name="name" type="text"
+            maxlength="100" required placeholder="तुमचे नाव">
         </div>
-    </main>
 
-    <!-- About Section -->
-    <section class="container" id="about">
-        <div class="about-section">
-            <h2 class="section-title">मल्हार चहाबद्दल</h2>
-            <p>आमच्यासाठी चहा हे फक्त पेय नाही, तर ती एक भावना आहे. परंपरेची जपणूक करत, आम्ही तुमच्यासाठी सर्वोत्तम दर्जाची चहापत्ती आणि निवडक मसाल्यांचा वापर करून अस्सल चव घेऊन आलो आहोत.</p>
-            <p>सकाळची ताजी सुरुवात असो किंवा संध्याकाळचा थकवा घालवायचा असो, मल्हार चहाचा प्रत्येक घोट तुम्हाला नक्कीच ताजेतवाने करेल.</p>
+        <div class="form-group">
+          <label for="phone">मोबाइल नंबर *</label>
+          <input id="phone" name="phone" type="tel"
+            required maxlength="20" pattern="[0-9+\-\s()]{10,20}"
+            placeholder="मोबाइल नंबर">
         </div>
-    </section>
 
-    <!-- Inquiry Section -->
-    <section class="container" id="inquiry">
-        <h2 class="section-title">चौकशी आणि फ्रँचायझी</h2>
-        <div class="inquiry-card">
-            <p>तुम्हाला मल्हार चहाची फ्रँचायझी हवी आहे किंवा काही चौकशी करायची आहे? खालील फॉर्म भरा:</p>
-            
-            <form id="inquiryForm">
-                <div class="form-grid">
-                    <div class="form-group">
-                        <label for="name">पूर्ण नाव (Full Name) *</label>
-                        <input type="text" id="name" required placeholder="तुमचे नाव टाका">
-                    </div>
-
-                    <div class="form-group">
-                        <label for="phone">मोबाइल नंबर (Mobile No) *</label>
-                        <input type="tel" id="phone" required placeholder="१० अंकी नंबर टाका">
-                    </div>
-
-                    <div class="form-group">
-                        <label for="inquiryType">चौकशीचा प्रकार (Inquiry Type)</label>
-                        <select id="inquiryType">
-                            <option value="franchise">फ्रँचायझी माहिती (Franchise Enquiry)</option>
-                            <option value="bulk_order">मोठी ऑर्डर / कॅटरिंग (Bulk Order)</option>
-                            <option value="feedback">प्रतिक्रिया / सूचना (Feedback)</option>
-                            <option value="other">इतर (Other)</option>
-                        </select>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="city">शहर / गाव (City/Location)</label>
-                        <input type="text" id="city" placeholder="तुमच्या शहराचे नाव">
-                    </div>
-
-                    <div class="form-group full-width">
-                        <label for="message">संदेश (Message)</label>
-                        <textarea id="message" rows="4" placeholder="तुमचा संदेश येथे लिहा..."></textarea>
-                    </div>
-                </div>
-
-                <div class="form-submit">
-                    <button type="submit" class="btn">संदेश पाठवा</button>
-                </div>
-            </form>
+        <div class="form-group">
+          <label for="inquiryType">चौकशीचा प्रकार</label>
+          <select id="inquiryType" name="inquiryType">
+            <option value="फ्रँचायझी">फ्रँचायझी माहिती</option>
+            <option value="मोठी ऑर्डर">मोठी ऑर्डर / कॅटरिंग</option>
+            <option value="प्रतिक्रिया">प्रतिक्रिया / सूचना</option>
+            <option value="इतर">इतर</option>
+          </select>
         </div>
-    </section>
 
-    <!-- Contact & Address Section -->
-    <section class="container" id="contact">
-        <h2 class="section-title">आमच्याशी संपर्क साधा</h2>
-        <div class="contact-grid">
-            
-            <!-- Address Card -->
-            <div class="contact-card">
-                <h3>मुख्य शाखा (पत्ता)</h3>
-                <p><strong>मल्हार चहा मुख्य शाखा,</strong></p>
-                <p>दिव्या झेरॉक्स च्या बाजूला,</p>
-                <p>पिंपळगाव (हरेश्वर) ४२४२०३,</p>
-                <p>पाचोरा, जळगाव, महाराष्ट्र.</p>
-            </div>
-
-            <!-- Contact Card -->
-            <div class="contact-card">
-                <h3>संपर्क तपशील</h3>
-                <p><strong>मालक:</strong> सार्थक ज्ञानेश्वर काळे</p>
-                <p><strong>फोन नंबर:</strong> <a href="tel:+918657482265">+91 8657482265</a> / <a href="tel:+918888191971">8888191971</a></p>
-                <p><strong>ईमेल:</strong> <a href="mailto:sarthakkale567@gmail.com">sarthakkale567@gmail.com</a></p>
-                <p><strong>वेळ:</strong> सकाळी ६:०० ते रात्री १०:०० (सर्व दिवस चालू)</p>
-            </div>
-
+        <div class="form-group">
+          <label for="city">शहर / गाव</label>
+          <input id="city" name="city" type="text"
+            maxlength="100" placeholder="तुमचे शहर">
         </div>
-    </section>
 
-    <!-- Footer -->
-    <footer>
-        <p style="color: var(--primary-yellow); font-weight: bold; margin-bottom: 0.5rem;">मल्हार चहा फ्रँचायझी</p>
-        <p>मुख्य शाखेला आजच भेट द्या!</p>
-        <p style="margin-top: 1rem;">&copy; २०२६ मल्हार चहा. सर्व हक्क सुरक्षित.</p>
-    </footer>
+        <div class="form-group full-width">
+          <label for="message">तुमचा संदेश</label>
+          <textarea id="message" name="message"
+            rows="4" maxlength="2000"
+            placeholder="तुमचा संदेश येथे लिहा"></textarea>
+        </div>
+      </div>
 
-    <!-- Form Handler Script -->
-    <script>
-        document.getElementById('inquiryForm').addEventListener('submit', function(e) {
-            e.preventDefault();
-            
-            const name = document.getElementById('name').value;
-            const phone = document.getElementById('phone').value;
-            const inquiryType = document.getElementById('inquiryType').value;
-            const city = document.getElementById('city').value;
-            const message = document.getElementById('message').value;
+      <div class="form-submit">
+        <button class="btn" id="submitBtn" type="submit">
+          संदेश पाठवा
+        </button>
+      </div>
 
-            const whatsappMsg = `नमस्कार, मी मल्हार चहा वेबसाइटवरून चौकशी करत आहे:%0A%0A*नाव:* ${name}%0A*फोन:* ${phone}%0A*प्रकार:* ${inquiryType}%0A*शहर:* ${city}%0A*संदेश:* ${message}`;
-            
-            window.open(`https://wa.me/918657482265?text=${whatsappMsg}`, '_blank');
-        });
-    </script>
+      <p id="status" class="status" role="status"
+        aria-live="polite"></p>
+    </form>
+  </div>
+</section>
+
+<section class="container" id="contact">
+  <h2 class="section-title">आमच्याशी संपर्क साधा</h2>
+
+  <div class="contact-grid">
+    <div class="contact-card">
+      <h3>मुख्य शाखा</h3>
+      <p><strong>मल्हार चहा</strong></p>
+      <p>दिव्या झेरॉक्सच्या बाजूला</p>
+      <p>पिंपळगाव (हरेश्वर) ४२४२०३</p>
+      <p>पाचोरा, जळगाव, महाराष्ट्र</p>
+    </div>
+
+    <div class="contact-card">
+      <h3>संपर्क तपशील</h3>
+      <p><strong>मालक:</strong> सार्थक ज्ञानेश्वर काळे</p>
+      <p>
+        <strong>फोन:</strong>
+        <a href="tel:+918657482265">8657482265</a>
+      </p>
+      <p>
+        <strong>फोन:</strong>
+        <a href="tel:+918888191971">8888191971</a>
+      </p>
+      <p>
+        <strong>ईमेल:</strong>
+        <a href="mailto:sarthakkale567@gmail.com">
+          sarthakkale567@gmail.com
+        </a>
+      </p>
+      <p><strong>वेळ:</strong> सकाळी ६ ते रात्री १०</p>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <p style="color:#ffc107;font-weight:bold">
+    मल्हार चहा फ्रँचायझी
+  </p>
+  <p>मुख्य शाखेला आजच भेट द्या!</p>
+  <p>© २०२६ मल्हार चहा. सर्व हक्क सुरक्षित.</p>
+  <p class="developer">Developed with ❤️ by Prathamesh ️</p>
+</footer>
+
+<!-- Supabase database connection -->
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+<script>
+  // Supabase Project Settings मधील माहिती येथे भरा.
+  const SUPABASE_URL = "YOUR_SUPABASE_URL";
+  const SUPABASE_KEY = "YOUR_SUPABASE_PUBLISHABLE_OR_ANON_KEY";
+
+  const form = document.getElementById("inquiryForm");
+  const statusBox = document.getElementById("status");
+  const submitBtn = document.getElementById("submitBtn");
+
+  form.addEventListener("submit", async function(event) {
+    event.preventDefault();
+
+    const name = document.getElementById("name").value.trim();
+    const phone = document.getElementById("phone").value.trim();
+    const inquiryType =
+      document.getElementById("inquiryType").value;
+    const city = document.getElementById("city").value.trim();
+    const message =
+      document.getElementById("message").value.trim();
+
+    if (!/^[0-9+\-\s()]{10,20}$/.test(phone)) {
+      statusBox.textContent = "कृपया योग्य मोबाइल नंबर टाका.";
+      return;
+    }
+
+    submitBtn.disabled = true;
+    statusBox.textContent = "कृपया थांबा...";
+
+    try {
+      if (
+        SUPABASE_URL.includes("YOUR_SUPABASE") ||
+        SUPABASE_KEY.includes("YOUR_SUPABASE")
+      ) {
+        throw new Error("डेटाबेस कॉन्फिगरेशन पूर्ण केलेले नाही.");
+      }
+
+      const client = window.supabase.createClient(
+        SUPABASE_URL,
+        SUPABASE_KEY
+      );
+
+      const { error } = await client
+        .from("inquiries")
+        .insert([{
+          name: name,
+          phone: phone,
+          inquiry_type: inquiryType,
+          city: city || null,
+          message: message || null
+        }]);
+
+      if (error) throw error;
+
+      statusBox.textContent =
+        "तुमची चौकशी डेटाबेसमध्ये सेव्ह झाली आहे.";
+
+      const whatsappMessage =
+        "नमस्कार, मी मल्हार चहा वेबसाइटवरून चौकशी करत आहे:\n\n" +
+        "नाव: " + name + "\n" +
+        "फोन: " + phone + "\n" +
+        "प्रकार: " + inquiryType + "\n" +
+        "शहर: " + city + "\n" +
+        "संदेश: " + message;
+
+      const whatsappURL =
+        "https://wa.me/918657482265?text=" +
+        encodeURIComponent(whatsappMessage);
+
+      form.reset();
+
+      window.location.href = whatsappURL;
+
+    } catch (error) {
+      console.error("Form submission error:", error);
+
+      statusBox.textContent =
+        "डेटाबेसमध्ये माहिती सेव्ह झाली नाही. " +
+        "Supabase URL, key, इंटरनेट आणि टेबलची सेटिंग तपासा.";
+    } finally {
+      submitBtn.disabled = false;
+    }
+  });
+</script>
 
 </body>
 </html>
